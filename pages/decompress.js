@@ -1,7 +1,7 @@
 // pages/decompress.js
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Layout from '../components/Layout';
+import Layout from '@/components/layout';
 
 export default function Decompress() {
   const [id, setId] = useState('');

@@ -1,6 +1,6 @@
 // pages/about.js
 import { motion } from 'framer-motion';
-import Layout from '../components/Layout';
+import Layout from '@/components/layout';
 
 export default function About() {
   const containerVariants = {
