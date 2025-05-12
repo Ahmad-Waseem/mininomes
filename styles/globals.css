@@ -3,7 +3,7 @@
 
 /* CSS Variables */
 :root {
-  --font-heading: 'Montserrat Alternates', sans-serif;
+  --font-headings: 'Montserrat Alternates', sans-serif;
   --font-text: 'Passero One', cursive;
 
   --color-primary: #845ec2;
@@ -12,6 +12,13 @@
 
   --background-color: #000000;
   --text-color: #e0e0e0;
+}
+
+.font-heading {
+  font-family: var(--font-headings);
+}
+.font-text {
+  font-family: var(--font-text);
 }
 
 /* Global Styles */

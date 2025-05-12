@@ -70,9 +70,9 @@ export default function Decompress() {
         animate="visible"
         className="max-w-4xl mx-auto"
       >
-        <motion.div variants={itemVariants} className="text-center mb-12">
+        <motion.div variants={itemVariants} className="text-center mb-12 z-20">
           <h1 className="font-heading text-5xl mb-4 bg-gradient-to-r from-[#ffc75f] via-[#ff6f91] to-[#845ec2] text-transparent bg-clip-text">
-            Genome Decompression
+            DECOMPRESSION
           </h1>
           <p className="font-text text-xl text-gray-300">
             Retrieve your original sequence with perfect fidelity

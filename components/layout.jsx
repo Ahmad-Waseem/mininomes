@@ -19,9 +19,9 @@ export default function Layout({ children }) {
   }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen flex relative overflow-hidden">
-      {/* Background animated gradient */}
-      <div className="absolute inset-0 z-0">
+    <div className="w-full bg-black text-white min-h-screen flex relative overflow-hidden">
+      {/* Background animated gradient - modified to be less intrusive */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <motion.div
           className="absolute inset-0 bg-gradient-to-br from-[#845ec2]/20 via-[#000000] to-[#ff6f91]/10"
           animate={{
@@ -43,11 +43,11 @@ export default function Layout({ children }) {
               initial={{ 
                 x: Math.random() * 100 + '%', 
                 y: Math.random() * 100 + '%',
-                opacity: Math.random() * 0.5 + 0.3,
+                opacity: Math.random() * 0.3 + 0.1, // Reduced opacity
               }}
               animate={{ 
                 y: [null, Math.random() * 100 + '%'],
-                opacity: [null, Math.random() * 0.5 + 0.3],
+                opacity: [null, Math.random() * 0.3 + 0.1], // Reduced opacity
               }}
               transition={{ 
                 duration: Math.random() * 10 + 20,
@@ -74,7 +74,7 @@ export default function Layout({ children }) {
             >
               <span className="text-2xl">🧪</span>
             </motion.div>
-            <h3 className="font-heading text-sm tracking-wider text-center">GENOME<br/>TOOLS</h3>
+            <h3 className="font-heading text-sm tracking-wider text-center font-bold">GENOME<br/>TOOLS</h3>
           </div>
           
           <div className="space-y-6">
@@ -101,7 +101,7 @@ export default function Layout({ children }) {
         </div>
       </motion.div>
 
-      {/* Content area */}
+      {/* Content area - added a dark semi-transparent background for better content visibility */}
       <div className="flex-1 ml-28">
         <AnimatePresence mode="wait">
           {isMounted && (
@@ -111,9 +111,13 @@ export default function Layout({ children }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="py-10 px-10 max-w-6xl mx-auto"
+              className="py-10 px-10 max-w-6xl mx-auto relative z-10"
             >
-              {children}
+              {/* Added an optional content backdrop for better readability */}
+              <div className="absolute inset-0 bg-black/30 backdrop-blur-sm rounded-3xl z-0"></div>
+              <div className="relative z-10">
+                {children}
+              </div>
             </motion.main>
           )}
         </AnimatePresence>
